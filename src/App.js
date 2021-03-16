@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
+//components
 import Note from './components/Note';
 import Notification from './components/Notification';
+import LoginForm from './components/LoginForm';
+
+//services
 import noteService from './services/notes';
 import loginService from './services/login';
 
@@ -27,6 +31,16 @@ const App = () => {
 			noteService.setToken(user.token);
 		}
 	}, []);
+
+	//event handlers
+
+	const handleUsernameChange = (e) => {
+		setUsername(e.target.value);
+	};
+
+	const handlePasswordChange = (e) => {
+		setPassword(e.target.value);
+	};
 
 	const handleLogin = async (event) => {
 		event.preventDefault();
@@ -82,8 +96,8 @@ const App = () => {
 			});
 	};
 
-	const handleNoteChange = (event) => {
-		setNewNote(event.target.value);
+	const handleNoteChange = (e) => {
+		setNewNote(e.target.value);
 	};
 
 	const handleLogout = () => {
@@ -92,30 +106,6 @@ const App = () => {
 	};
 
 	const notesToShow = showAll ? notes : notes.filter((note) => note.important);
-
-	const loginForm = () => (
-		<form onSubmit={handleLogin}>
-			<div>
-				username
-				<input
-					type="text"
-					value={username}
-					name="Username"
-					onChange={({ target }) => setUsername(target.value)}
-				/>
-			</div>
-			<div>
-				password
-				<input
-					type="password"
-					value={password}
-					name="Password"
-					onChange={({ target }) => setPassword(target.value)}
-				/>
-			</div>
-			<button type="submit">login</button>
-		</form>
-	);
 
 	const noteForm = () => (
 		<form onSubmit={addNote}>
@@ -132,7 +122,13 @@ const App = () => {
 			<Notification message={errorMessage} />
 
 			{user === null ? (
-				loginForm()
+				<LoginForm
+					handleSubmit={handleLogin}
+					handleUsernameChange={handleUsernameChange}
+					handlePasswordChange={handlePasswordChange}
+					username={username}
+					password={password}
+				/>
 			) : (
 				<div>
 					<p>{user.name} logged-in</p>
