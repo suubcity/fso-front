@@ -1,40 +1,43 @@
 {
-  "name": "notes",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "axios": "^0.19.2",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-scripts": "3.3.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "server": "json-server -p3001 --watch db.json"
-  },
-  "proxy": "http://localhost:3001",
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "json-server": "^0.15.1"
-  }
+	"name": "notes",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@testing-library/user-event": "^7.2.1",
+		"axios": "^0.19.2",
+		"prop-types": "^15.7.2",
+		"react": "^16.14.0",
+		"react-dom": "^16.14.0",
+		"react-scripts": "3.3.0"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"server": "json-server -p3001 --watch db.json",
+		"eslint": "eslint ."
+	},
+	"proxy": "http://localhost:3001",
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@testing-library/jest-dom": "^5.11.10",
+		"@testing-library/react": "^11.2.5",
+		"eslint-plugin-jest": "^24.3.2",
+		"json-server": "^0.15.1"
+	}
 }
